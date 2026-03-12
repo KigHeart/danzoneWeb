@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>About Us — DanaZone™</title>
+  <meta name="description" content="Learn about DanaZone, Kenya's premier online marketplace. Our story, mission and values.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://danazone.co.ke/pages/about.html">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div id="header-root"></div>
+<div class="page-header"><div class="container"><h1>About DanaZone</h1><p>Kenya's premier online marketplace since 2024</p></div></div>
+<div class="container" style="padding:60px 0;max-width:900px">
+  <div style="text-align:center;margin-bottom:60px">
+    <h2 style="font-family:var(--font-head);font-size:2.2rem;color:var(--navy);margin-bottom:16px">Built for Kenyans, by Kenyans</h2>
+    <p style="font-size:16px;color:var(--gray-600);line-height:1.8;max-width:700px;margin:0 auto">DanaZone was founded with a simple mission: make quality products accessible and affordable for every Kenyan. From Nairobi to Kisumu, Mombasa to Eldoret — we deliver.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:60px">
+    ${[['2M+','Products Listed','From trusted sellers worldwide'],['500K+','Happy Customers','Across all 47 counties'],['24H','Delivery in Nairobi','Same-day available']].map(([v,t,s])=>`<div style="background:var(--navy);border-radius:var(--radius-lg);padding:32px;text-align:center"><div style="font-family:var(--font-head);font-size:2.4rem;font-weight:800;color:var(--gold)">${v}</div><div style="color:#fff;font-weight:700;margin-top:6px">${t}</div><div style="color:rgba(255,255,255,.5);font-size:13px;margin-top:4px">${s}</div></div>`).join('')}
+  </div>
+  <div style="background:var(--teal-light);border-radius:var(--radius-lg);padding:40px;margin-bottom:48px">
+    <h2 style="font-family:var(--font-head);font-size:1.5rem;color:var(--navy);margin-bottom:16px">Our Mission</h2>
+    <p style="color:var(--gray-600);line-height:1.8">To democratise commerce in Africa — making it possible for anyone with a smartphone to buy quality products from around the world, and for any Kenyan entrepreneur to sell to a nation of 50 million people.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:48px">
+    ${[['🛡️','Buyer Protection','Every purchase is protected by DanaZone Guarantee. If something goes wrong, we make it right.'],['🤝','Seller Partnership','We partner with thousands of local and international sellers to bring you the best selection.'],['🌍','Kenyan First','Proudly Kenyan. We pay taxes here, employ Kenyans, and reinvest in local communities.'],['♻️','Sustainability','Committed to reducing packaging waste and partnering with eco-conscious suppliers.']].map(([i,t,d])=>`<div style="padding:24px;border:1px solid var(--gray-200);border-radius:var(--radius-md)"><div style="font-size:36px;margin-bottom:12px">${i}</div><div style="font-family:var(--font-head);font-size:1.1rem;color:var(--navy);margin-bottom:8px">${t}</div><div style="font-size:14px;color:var(--gray-600);line-height:1.7">${d}</div></div>`).join('')}
+  </div>
+  <div style="text-align:center;padding:40px;background:var(--navy);border-radius:var(--radius-lg)">
+    <h2 style="font-family:var(--font-head);font-size:1.5rem;color:#fff;margin-bottom:10px">Join the DanaZone Family</h2>
+    <p style="color:rgba(255,255,255,.6);margin-bottom:20px">Sell on DanaZone and reach 500,000+ active buyers across Kenya.</p>
+    <a href="seller.html" class="btn btn-gold btn-lg">Become a Seller →</a>
+  </div>
+</div>
+<div id="footer-root"></div><div id="cart-root"></div><div id="notif-root"></div>
+<script src="../js/products.js"></script><script src="../js/components.js"></script>
+<script>
+document.getElementById('header-root').innerHTML=renderHeader();
+document.getElementById('footer-root').innerHTML=renderFooter();
+document.getElementById('cart-root').innerHTML=renderCartDrawer();
+document.getElementById('notif-root').innerHTML=renderNotification();
+</script>
+</body></html>

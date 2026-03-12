@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>All Products — DanaZone™</title>
+  <meta name="description" content="Shop millions of products at DanaZone. Electronics, Fashion, Home, Beauty and more.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://danazone.co.ke/pages/products.html">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .products-layout{display:grid;grid-template-columns:260px 1fr;gap:28px;padding:28px 0}
+    .filter-panel{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-md);padding:20px;height:fit-content;position:sticky;top:90px}
+    .filter-group{margin-bottom:24px;border-bottom:1px solid var(--gray-100);padding-bottom:20px}
+    .filter-group:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0}
+    .filter-title{font-weight:700;font-size:13px;color:var(--navy);margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px}
+    .filter-option{display:flex;align-items:center;gap:8px;padding:5px 0;cursor:pointer;font-size:13.5px;color:var(--gray-600)}
+    .filter-option:hover{color:var(--teal)}
+    .filter-option input{accent-color:var(--teal)}
+    .price-range{width:100%;accent-color:var(--teal);cursor:pointer}
+    .products-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px}
+    .products-count{font-size:13.5px;color:var(--gray-600)}
+    .sort-select{border:1.5px solid var(--gray-200);border-radius:var(--radius-sm);padding:8px 14px;font-size:13.5px;outline:none;font-family:inherit;color:var(--gray-800)}
+    .sort-select:focus{border-color:var(--teal)}
+    .active-filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+    .filter-tag{display:inline-flex;align-items:center;gap:6px;background:var(--teal-light);color:var(--teal);border:1px solid rgba(0,191,166,.3);padding:4px 12px;border-radius:50px;font-size:12px;font-weight:600}
+    .filter-tag span{cursor:pointer;font-size:14px}
+    @media(max-width:768px){.products-layout{grid-template-columns:1fr}.filter-panel{display:none}}
+  </style>
+</head>
+<body>
+<div id="header-root"></div>
+<div class="page-header" style="padding:28px 0"><div class="container"><h1 id="pageTitle">All Products</h1><p id="pageSubtitle">Discover millions of products at great prices</p></div></div>
+<div class="container">
+  <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><span id="breadcrumbCat">All Products</span></div>
+  <div class="products-layout">
+    <div class="filter-panel">
+      <div class="filter-group">
+        <div class="filter-title">Category</div>
+        ${['Electronics','Fashion','Home & Living','Beauty','Sports','Food & Grocery','Books','Toys & Kids'].map(c=>`<label class="filter-option"><input type="checkbox" onchange="applyFilters()"> ${c}</label>`).join('')}
+      </div>
+      <div class="filter-group">
+        <div class="filter-title">Price Range</div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--gray-400);margin-bottom:8px"><span>KES 0</span><span id="priceMax">KES 200,000</span></div>
+        <input type="range" class="price-range" min="0" max="200000" value="200000" step="1000" oninput="document.getElementById('priceMax').textContent='KES '+parseInt(this.value).toLocaleString();applyFilters()">
+      </div>
+      <div class="filter-group">
+        <div class="filter-title">Rating</div>
+        ${[5,4,3].map(r=>`<label class="filter-option"><input type="checkbox" onchange="applyFilters()"> ${'★'.repeat(r)}${'☆'.repeat(5-r)} & above</label>`).join('')}
+      </div>
+      <div class="filter-group">
+        <div class="filter-title">Deals</div>
+        <label class="filter-option"><input type="checkbox" onchange="applyFilters()"> On Sale</label>
+        <label class="filter-option"><input type="checkbox" onchange="applyFilters()"> New Arrivals</label>
+        <label class="filter-option"><input type="checkbox" onchange="applyFilters()"> Free Delivery</label>
+      </div>
+      <button onclick="clearFilters()" style="width:100%;padding:10px;background:var(--gray-100);border:none;border-radius:var(--radius-sm);font-size:13px;font-weight:600;color:var(--gray-600);cursor:pointer;font-family:inherit;margin-top:8px">Clear All Filters</button>
+    </div>
+    <div>
+      <div class="products-top">
+        <div class="products-count"><span id="productCount">0</span> products found</div>
+        <select class="sort-select" onchange="sortProducts(this.value)">
+          <option value="featured">Featured</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="rating">Highest Rated</option>
+          <option value="newest">Newest First</option>
+        </select>
+      </div>
+      <div class="products-grid" id="productsGrid"></div>
+    </div>
+  </div>
+</div>
+<div id="footer-root"></div><div id="cart-root"></div><div id="notif-root"></div>
+<script src="../js/products.js"></script><script src="../js/components.js"></script>
+<script>
+document.getElementById('header-root').innerHTML=renderHeader();
+document.getElementById('footer-root').innerHTML=renderFooter();
+document.getElementById('cart-root').innerHTML=renderCartDrawer();
+document.getElementById('notif-root').innerHTML=renderNotification();
+
+let currentProducts=[...PRODUCTS];
+const params=new URLSearchParams(window.location.search);
+const catParam=params.get('cat');
+const qParam=params.get('q');
+const badgeParam=params.get('badge');
+
+if(catParam){
+  currentProducts=PRODUCTS.filter(p=>p.cat.toLowerCase().includes(catParam.toLowerCase()));
+  document.getElementById('pageTitle').textContent=catParam;
+  document.getElementById('breadcrumbCat').textContent=catParam;
+}else if(qParam){
+  currentProducts=searchProducts(qParam);
+  document.getElementById('pageTitle').textContent='Search: '+qParam;
+  document.getElementById('breadcrumbCat').textContent='Search Results';
+}else if(badgeParam){
+  currentProducts=PRODUCTS.filter(p=>p.badge===badgeParam);
+  document.getElementById('pageTitle').textContent='New Arrivals';
+}
+
+function renderProducts(prods){
+  document.getElementById('productsGrid').innerHTML=prods.map(renderProductCard).join('');
+  document.getElementById('productCount').textContent=prods.length;
+}
+function sortProducts(v){
+  let s=[...currentProducts];
+  if(v==='price-low')s.sort((a,b)=>a.price-b.price);
+  else if(v==='price-high')s.sort((a,b)=>b.price-a.price);
+  else if(v==='rating')s.sort((a,b)=>b.rating-a.rating);
+  renderProducts(s);
+}
+function applyFilters(){renderProducts(currentProducts);}
+function clearFilters(){document.querySelectorAll('.filter-option input').forEach(i=>i.checked=false);renderProducts(currentProducts);}
+renderProducts(currentProducts);
+</script>
+</body></html>

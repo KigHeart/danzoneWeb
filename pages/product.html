@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title id="pageTitle">Product — DanaZone™</title>
+  <meta name="description" id="pageDesc" content="Shop this product at DanaZone.">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .product-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding:32px 0}
+    .product-gallery-main{aspect-ratio:1;background:var(--gray-100);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;font-size:120px;border:1px solid var(--gray-200)}
+    .product-gallery-thumbs{display:flex;gap:10px;margin-top:14px}
+    .gallery-thumb{width:72px;height:72px;background:var(--gray-100);border-radius:var(--radius-sm);border:2px solid transparent;display:flex;align-items:center;justify-content:center;font-size:28px;cursor:pointer;transition:var(--transition)}
+    .gallery-thumb.active,.gallery-thumb:hover{border-color:var(--teal)}
+    .product-detail-title{font-family:var(--font-head);font-size:1.6rem;font-weight:700;color:var(--navy);margin-bottom:12px}
+    .product-detail-price{display:flex;align-items:baseline;gap:12px;margin-bottom:20px}
+    .price-big{font-family:var(--font-head);font-size:2rem;font-weight:800;color:var(--navy)}
+    .product-description{color:var(--gray-600);font-size:14px;line-height:1.8;margin-bottom:24px}
+    .qty-selector{display:flex;align-items:center;border:1.5px solid var(--gray-200);border-radius:var(--radius-sm);overflow:hidden;width:fit-content;margin-bottom:20px}
+    .qty-btn{padding:10px 16px;background:var(--gray-100);font-size:18px;font-weight:700;border:none;cursor:pointer;transition:var(--transition)}
+    .qty-btn:hover{background:var(--teal);color:#fff}
+    .qty-val{padding:10px 20px;font-weight:600}
+    .product-ctas{display:flex;gap:12px;margin-bottom:24px}
+    .tabs{display:flex;gap:0;border-bottom:2px solid var(--gray-200);margin:40px 0 20px}
+    .tab-btn{padding:11px 22px;font-size:14px;font-weight:600;color:var(--gray-400);border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:var(--transition);font-family:inherit}
+    .tab-btn.active{color:var(--teal);border-bottom-color:var(--teal)}
+    .tab-panel{display:none}.tab-panel.active{display:block}
+    .review-item{padding:16px 0;border-bottom:1px solid var(--gray-100)}
+    .review-author{font-weight:600;font-size:13px;margin-bottom:4px}
+    .review-text{font-size:13.5px;color:var(--gray-600)}
+    @media(max-width:768px){.product-detail-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<div id="header-root"></div>
+<div class="container">
+  <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="products.html" id="breadCat">Products</a><span>/</span><span id="breadName">Product</span></div>
+  <div class="product-detail-grid">
+    <div>
+      <div class="product-gallery-main" id="mainImg">📦</div>
+      <div class="product-gallery-thumbs" id="thumbs"></div>
+    </div>
+    <div>
+      <div id="productBadge"></div>
+      <div class="product-detail-title" id="prodTitle">Loading...</div>
+      <div class="product-rating" style="margin-bottom:14px"><span class="stars" id="prodStars">★★★★★</span><span class="rating-count" id="prodReviews"></span></div>
+      <div class="product-detail-price">
+        <span class="price-big" id="prodPrice">KES 0</span>
+        <span class="price-old" id="prodOld"></span>
+        <span class="price-discount" id="prodDisc"></span>
+      </div>
+      <p class="product-description" id="prodDesc"></p>
+      <div style="background:var(--green);color:#fff;padding:8px 14px;border-radius:var(--radius-sm);font-size:13px;font-weight:600;display:inline-flex;gap:6px;margin-bottom:16px">✓ In Stock — Ready to Ship</div>
+      <div>
+        <div style="font-size:13px;font-weight:600;color:var(--navy);margin-bottom:8px">Quantity</div>
+        <div class="qty-selector">
+          <button class="qty-btn" onclick="changeQty(-1)">−</button>
+          <span class="qty-val" id="qtyVal">1</span>
+          <button class="qty-btn" onclick="changeQty(1)">+</button>
+        </div>
+      </div>
+      <div class="product-ctas">
+        <button class="btn btn-primary btn-lg" id="addCartBtn" style="flex:1;justify-content:center">🛒 Add to Cart</button>
+        <button class="btn btn-outline btn-lg" onclick="showNotif('❤️','Added to wishlist!')">❤️</button>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;padding:16px;background:var(--gray-100);border-radius:var(--radius-md);font-size:13px">
+        <div style="display:flex;gap:10px;align-items:center"><span>🚚</span><span><strong>Free delivery</strong> on orders over KES 2,000</span></div>
+        <div style="display:flex;gap:10px;align-items:center"><span>🔄</span><span><strong>30-day returns</strong> — hassle-free</span></div>
+        <div style="display:flex;gap:10px;align-items:center"><span>🔒</span><span><strong>Secure payment</strong> — M-Pesa, Visa, PayPal</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('desc',this)">Description</button>
+    <button class="tab-btn" onclick="showTab('specs',this)">Specifications</button>
+    <button class="tab-btn" onclick="showTab('reviews',this)">Reviews</button>
+  </div>
+  <div class="tab-panel active" id="tab-desc">
+    <p id="fullDesc" style="color:var(--gray-600);line-height:1.8;font-size:14.5px"></p>
+  </div>
+  <div class="tab-panel" id="tab-specs">
+    <div id="specsTable" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:600px"></div>
+  </div>
+  <div class="tab-panel" id="tab-reviews">
+    <div id="reviewsList"></div>
+    <div style="margin-top:24px;padding:20px;background:var(--gray-100);border-radius:var(--radius-md)">
+      <div style="font-weight:700;margin-bottom:14px;font-family:var(--font-head)">Write a Review</div>
+      <div style="display:flex;gap:8px;font-size:24px;margin-bottom:12px;cursor:pointer" id="ratingPicker">☆☆☆☆☆</div>
+      <textarea style="width:100%;border:1.5px solid var(--gray-200);border-radius:var(--radius-sm);padding:12px;font-family:inherit;font-size:14px;outline:none;min-height:80px;margin-bottom:10px" placeholder="Share your thoughts about this product..."></textarea>
+      <button class="btn btn-primary" onclick="showNotif('✅','Review submitted! Thank you.')">Submit Review</button>
+    </div>
+  </div>
+
+  <div style="padding:40px 0">
+    <div class="section-header"><h2 class="section-title">You May Also <span>Like</span></h2></div>
+    <div class="products-grid" id="relatedProducts"></div>
+  </div>
+</div>
+<div id="footer-root"></div><div id="cart-root"></div><div id="notif-root"></div>
+<script src="../js/products.js"></script><script src="../js/components.js"></script>
+<script>
+document.getElementById('header-root').innerHTML=renderHeader();
+document.getElementById('footer-root').innerHTML=renderFooter();
+document.getElementById('cart-root').innerHTML=renderCartDrawer();
+document.getElementById('notif-root').innerHTML=renderNotification();
+
+const id=new URLSearchParams(window.location.search).get('id');
+const p=PRODUCTS.find(x=>x.id===id)||PRODUCTS[0];
+let qty=1;
+
+document.getElementById('pageTitle').textContent=p.name+' — DanaZone™';
+document.getElementById('pageDesc').content=p.desc;
+document.getElementById('mainImg').textContent=p.emoji||'📦';
+document.getElementById('breadCat').textContent=p.cat;
+document.getElementById('breadName').textContent=p.name;
+document.getElementById('prodTitle').textContent=p.name;
+document.getElementById('prodStars').textContent='★'.repeat(Math.round(p.rating))+'☆'.repeat(5-Math.round(p.rating));
+document.getElementById('prodReviews').textContent=p.rating+' ('+p.reviews.toLocaleString()+' reviews)';
+document.getElementById('prodPrice').textContent='KES '+p.price.toLocaleString();
+if(p.oldPrice){document.getElementById('prodOld').textContent='KES '+p.oldPrice.toLocaleString();document.getElementById('prodDisc').textContent='-'+Math.round((1-p.price/p.oldPrice)*100)+'%';}
+document.getElementById('prodDesc').textContent=p.desc;
+document.getElementById('fullDesc').textContent=p.desc+' This is a premium product sourced and quality-checked by the DanaZone team. All items are covered by our 30-day return policy and DanaZone buyer protection.';
+if(p.badge)document.getElementById('productBadge').innerHTML=`<span class="badge badge-${p.badge}" style="margin-bottom:12px;display:inline-block">${p.badge.toUpperCase()}</span>`;
+document.getElementById('thumbs').innerHTML=[p.emoji||'📦',p.emoji||'📦',p.emoji||'📦'].map((e,i)=>`<div class="gallery-thumb ${i===0?'active':''}">${e}</div>`).join('');
+document.getElementById('specsTable').innerHTML=[['Brand',p.cat],['Category',p.sub],['Rating',p.rating+'/5'],['Reviews',p.reviews.toLocaleString()],['Availability','In Stock'],['SKU','DZ-'+p.id.toUpperCase()]].map(([k,v])=>`<div style="background:var(--gray-100);padding:10px 14px;border-radius:var(--radius-sm)"><div style="font-size:11px;color:var(--gray-400);text-transform:uppercase;font-weight:600">${k}</div><div style="font-weight:600;font-size:14px;color:var(--navy);margin-top:2px">${v}</div></div>`).join('');
+document.getElementById('reviewsList').innerHTML=[{u:'James M.',r:5,t:'Excellent product! Exactly as described. Fast delivery to Nairobi.'},{u:'Sarah W.',r:4,t:'Great value for money. Would recommend to anyone.'},{u:'David O.',r:5,t:'Very impressed with the quality. Will definitely buy again.'}].map(rv=>`<div class="review-item"><div style="display:flex;justify-content:space-between"><div class="review-author">${rv.u}</div><span class="stars" style="font-size:13px">${'★'.repeat(rv.r)}</span></div><p class="review-text">${rv.t}</p></div>`).join('');
+document.getElementById('relatedProducts').innerHTML=PRODUCTS.filter(x=>x.cat===p.cat&&x.id!==p.id).slice(0,4).map(renderProductCard).join('');
+document.getElementById('addCartBtn').onclick=()=>{for(let i=0;i<qty;i++)addToCart({id:p.id,name:p.name,price:p.price,emoji:p.emoji||'📦'});openCart();};
+function changeQty(d){qty=Math.max(1,qty+d);document.getElementById('qtyVal').textContent=qty;}
+function showTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');}
+</script>
+</body></html>

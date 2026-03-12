@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Sell on DanaZone™ — Reach 500,000+ Buyers</title>
+  <meta name="description" content="Sell your products on DanaZone and reach hundreds of thousands of buyers across Kenya. Simple setup, low fees, fast payments.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://danazone.co.ke/pages/seller.html">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div id="header-root"></div>
+<div class="page-header" style="padding:60px 0"><div class="container"><h1>Sell on DanaZone™</h1><p>Reach 500,000+ active buyers across Kenya and beyond</p><div style="margin-top:20px"><a href="#register" class="btn btn-gold btn-lg">Start Selling Free →</a></div></div></div>
+<div class="container" style="padding:60px 0">
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:60px">
+    ${[['📦','0% Commission','No monthly fees to list products. We only earn when you earn.'],['💸','Fast Payouts','Get paid weekly directly to your M-Pesa or bank account.'],['📊','Seller Dashboard','Real-time analytics, inventory management, and order tracking.']].map(([i,t,d])=>`<div style="background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:28px;text-align:center"><div style="font-size:40px;margin-bottom:12px">${i}</div><div style="font-family:var(--font-head);font-size:1.1rem;color:var(--navy);margin-bottom:8px">${t}</div><div style="font-size:14px;color:var(--gray-600)">${d}</div></div>`).join('')}
+  </div>
+  <div id="register" style="max-width:600px;margin:0 auto;background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:40px">
+    <h2 style="font-family:var(--font-head);font-size:1.5rem;color:var(--navy);margin-bottom:6px">Create Your Seller Account</h2>
+    <p style="color:var(--gray-400);font-size:14px;margin-bottom:24px">Free to register. Start listing in minutes.</p>
+    <div class="contact-form">
+      <div class="form-group"><label>Business / Store Name *</label><input type="text" placeholder="e.g. Nairobi Tech Store"></div>
+      <div class="form-group"><label>Your Full Name *</label><input type="text" placeholder="John Doe"></div>
+      <div class="form-group"><label>Email Address *</label><input type="email" placeholder="john@business.com"></div>
+      <div class="form-group"><label>Phone / WhatsApp *</label><input type="tel" placeholder="+254 700 000 000"></div>
+      <div class="form-group"><label>Business Category *</label><select><option>Electronics</option><option>Fashion</option><option>Home & Living</option><option>Beauty</option><option>Sports</option><option>Food & Grocery</option><option>Books</option><option>Other</option></select></div>
+      <div class="form-group"><label>ID / Business Registration Number *</label><input type="text" placeholder="National ID or Business Reg No."></div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;padding:14px;font-size:15px" onclick="this.textContent='✅ Application Submitted!';this.style.background='var(--green)'">Create Seller Account →</button>
+    </div>
+  </div>
+</div>
+<div id="footer-root"></div><div id="cart-root"></div><div id="notif-root"></div>
+<script src="../js/products.js"></script><script src="../js/components.js"></script>
+<script>
+document.getElementById('header-root').innerHTML=renderHeader();
+document.getElementById('footer-root').innerHTML=renderFooter();
+document.getElementById('cart-root').innerHTML=renderCartDrawer();
+document.getElementById('notif-root').innerHTML=renderNotification();
+</script>
+</body></html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Track Your Order — DanaZone™</title>
+  <meta name="description" content="Track your DanaZone order in real time. Enter your order number to see delivery status.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://danazone.co.ke/pages/track-order.html">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div id="header-root"></div>
+<div class="page-header"><div class="container"><h1>Track Your Order</h1><p>Real-time delivery tracking</p></div></div>
+<div class="container" style="padding:60px 0;max-width:700px">
+  <div style="background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:40px;margin-bottom:32px">
+    <h2 style="font-family:var(--font-head);font-size:1.3rem;color:var(--navy);margin-bottom:20px">Enter Order Details</h2>
+    <div class="contact-form">
+      <div class="form-group"><label>Order Number *</label><input type="text" id="orderNum" placeholder="e.g. DZ-2024-123456"></div>
+      <div class="form-group"><label>Email Address or Phone *</label><input type="text" id="orderEmail" placeholder="Email or phone number used at checkout"></div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;padding:14px" onclick="trackOrder()">Track Order →</button>
+    </div>
+  </div>
+  <div id="trackingResult" style="display:none">
+    <div style="background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:32px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px">
+        <div><div style="font-size:13px;color:var(--gray-400)">Order Number</div><div style="font-family:var(--font-head);font-size:1.2rem;font-weight:700;color:var(--navy)" id="orderDisplay"></div></div>
+        <span class="badge badge-new" style="font-size:13px;padding:6px 16px">In Transit</span>
+      </div>
+      <div style="position:relative;padding-left:32px">
+        ${[['✅','Order Confirmed','Your order was received and payment confirmed.','March 10, 2026 — 10:23 AM',true],['✅','Processing','Your items have been picked and packed.','March 10, 2026 — 2:45 PM',true],['✅','Dispatched','Your order left our warehouse.','March 11, 2026 — 8:12 AM',true],['🚚','Out for Delivery','Your order is with the courier.','March 12, 2026 — 9:30 AM',true],['📍','Delivered','Estimated delivery today before 5pm.','Expected: March 12, 2026',false]].map(([i,t,d,time,done])=>`<div style="display:flex;gap:16px;margin-bottom:20px"><div style="width:36px;height:36px;border-radius:50%;background:${done?'var(--teal)':'var(--gray-200)'};display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;position:relative;z-index:1">${i}</div><div><div style="font-weight:700;color:${done?'var(--navy)':'var(--gray-400)'};margin-bottom:3px">${t}</div><div style="font-size:13px;color:var(--gray-400);margin-bottom:2px">${d}</div><div style="font-size:12px;color:var(--teal);font-weight:600">${time}</div></div></div>`).join('')}
+        <div style="position:absolute;left:17px;top:18px;bottom:18px;width:2px;background:var(--gray-200);z-index:0"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="footer-root"></div><div id="cart-root"></div><div id="notif-root"></div>
+<script src="../js/products.js"></script><script src="../js/components.js"></script>
+<script>
+document.getElementById('header-root').innerHTML=renderHeader();
+document.getElementById('footer-root').innerHTML=renderFooter();
+document.getElementById('cart-root').innerHTML=renderCartDrawer();
+document.getElementById('notif-root').innerHTML=renderNotification();
+function trackOrder(){
+  const num=document.getElementById('orderNum').value.trim();
+  if(!num){showNotif('❌','Please enter your order number');return;}
+  document.getElementById('orderDisplay').textContent=num||'DZ-2024-123456';
+  document.getElementById('trackingResult').style.display='block';
+  document.getElementById('trackingResult').scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body></html>

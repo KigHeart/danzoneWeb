@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /pages/checkout.html
+Disallow: /pages/account.html
+Sitemap: https://danazone.co.ke/sitemap.xml

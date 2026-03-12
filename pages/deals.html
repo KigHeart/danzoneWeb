@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Flash Deals — DanaZone™ | Up to 60% OFF Today Only</title>
+  <meta name="description" content="DanaZone Flash Deals. Up to 60% off electronics, fashion, beauty and more. Limited time, limited stock.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://danazone.co.ke/pages/deals.html">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div id="header-root"></div>
+<div style="background:linear-gradient(135deg,#1a0530 0%,var(--navy) 100%);padding:40px 0;text-align:center">
+  <div class="container">
+    <div style="color:var(--gold);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px">⚡ Today Only</div>
+    <h1 style="font-family:var(--font-head);font-size:clamp(2rem,5vw,3rem);color:#fff;font-weight:800;margin-bottom:10px">Flash Deals</h1>
+    <p style="color:rgba(255,255,255,.65);margin-bottom:24px">Limited stock. Ends when it's gone.</p>
+    <div style="display:inline-flex;gap:16px">
+      <div style="background:rgba(255,255,255,.1);border-radius:var(--radius-sm);padding:14px 20px;text-align:center;min-width:70px"><div style="font-family:var(--font-head);font-size:2rem;font-weight:800;color:var(--gold)" id="cdH">06</div><div style="font-size:11px;color:rgba(255,255,255,.5);text-transform:uppercase">Hours</div></div>
+      <div style="background:rgba(255,255,255,.1);border-radius:var(--radius-sm);padding:14px 20px;text-align:center;min-width:70px"><div style="font-family:var(--font-head);font-size:2rem;font-weight:800;color:var(--gold)" id="cdM">00</div><div style="font-size:11px;color:rgba(255,255,255,.5);text-transform:uppercase">Mins</div></div>
+      <div style="background:rgba(255,255,255,.1);border-radius:var(--radius-sm);padding:14px 20px;text-align:center;min-width:70px"><div style="font-family:var(--font-head);font-size:2rem;font-weight:800;color:var(--gold)" id="cdS">00</div><div style="font-size:11px;color:rgba(255,255,255,.5);text-transform:uppercase">Secs</div></div>
+    </div>
+  </div>
+</div>
+<div class="section"><div class="container"><div class="products-grid" id="dealsGrid"></div></div></div>
+<div id="footer-root"></div><div id="cart-root"></div><div id="notif-root"></div>
+<script src="../js/products.js"></script><script src="../js/components.js"></script>
+<script>
+document.getElementById('header-root').innerHTML=renderHeader();
+document.getElementById('footer-root').innerHTML=renderFooter();
+document.getElementById('cart-root').innerHTML=renderCartDrawer();
+document.getElementById('notif-root').innerHTML=renderNotification();
+document.getElementById('dealsGrid').innerHTML=PRODUCTS.filter(p=>p.oldPrice).map(renderProductCard).join('');
+</script>
+</body></html>

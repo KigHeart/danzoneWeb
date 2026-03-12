@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop All Products | DanaZone™</title>
+  <meta name="description" content="Browse millions of products on DanaZone. Electronics, fashion, home goods, beauty and more at unbeatable prices in Kenya.">
+  <link rel="canonical" href="https://danazone.co.ke/pages/shop.html">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2300C9A7'/><text y='.9em' font-size='70' x='15' fill='%230B1120' font-weight='900'>D</text></svg>">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"CollectionPage","name":"DanaZone Shop","url":"https://danazone.co.ke/pages/shop.html","description":"Shop all products at DanaZone Kenya"}
+  </script>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="container">
+    <div class="top-bar-marquee"><span>🚀 Free delivery on orders over KES 2,000 &nbsp;|&nbsp; ⚡ Flash Sale: Electronics up to 60% OFF &nbsp;|&nbsp; 📱 Pay with M-Pesa Fanikiwa &nbsp;|&nbsp; 🚀 Free delivery on orders over KES 2,000 &nbsp;|&nbsp; ⚡ Flash Sale: Electronics up to 60% OFF &nbsp;|&nbsp; 📱 Pay with M-Pesa Fanikiwa</span></div>
+    <div class="top-bar-links"><a href="track.html">Track Order</a><a href="contact.html">Help</a></div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="../index.html" class="logo"><div class="logo-icon">D</div><div class="logo-text">Dana<span>Zone</span><sup>™</sup></div></a>
+      <div class="search-wrapper">
+        <select class="search-category"><option>All Categories</option><option>Electronics</option><option>Fashion</option><option>Home & Living</option><option>Beauty</option><option>Sports</option></select>
+        <input type="text" class="search-input" id="shop-search" placeholder="Search products, brands and more…">
+        <button class="search-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Search</button>
+      </div>
+      <div class="header-actions">
+        <button class="hamburger"><span></span><span></span><span></span></button>
+        <a href="account.html" class="header-action-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Account</a>
+        <a href="wishlist.html" class="header-action-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>Wishlist</a>
+        <a href="#" class="header-action-btn" data-action="open-cart" style="position:relative;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>Cart<span class="badge cart-badge" style="display:none;">0</span></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span id="breadcrumb-cat">All Products</span>
+    </div>
+    <h1 class="page-title" id="page-title">All Products</h1>
+    <p class="product-count" id="product-count">Loading products…</p>
+  </div>
+</div>
+
+<!-- SHOP LAYOUT -->
+<div class="container" style="padding-top:32px;padding-bottom:60px;">
+  <div class="shop-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border);">
+        <h3 style="font-family:var(--font-display);font-weight:700;font-size:1rem;">Filters</h3>
+        <button onclick="clearFilters()" style="font-size:0.78rem;color:var(--teal);background:none;border:none;cursor:pointer;font-family:var(--font-body);">Clear All</button>
+      </div>
+
+      <!-- Category -->
+      <div class="filter-group">
+        <div class="filter-title">Category <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="filter-options" id="filter-categories">
+          <label class="filter-option"><input type="radio" name="cat" value="all" checked onchange="applyFilters()"> All Categories</label>
+          <label class="filter-option"><input type="radio" name="cat" value="electronics" onchange="applyFilters()"> 📱 Electronics</label>
+          <label class="filter-option"><input type="radio" name="cat" value="fashion" onchange="applyFilters()"> 👗 Fashion</label>
+          <label class="filter-option"><input type="radio" name="cat" value="home" onchange="applyFilters()"> 🏡 Home & Living</label>
+          <label class="filter-option"><input type="radio" name="cat" value="beauty" onchange="applyFilters()"> 💄 Beauty</label>
+          <label class="filter-option"><input type="radio" name="cat" value="sports" onchange="applyFilters()"> ⚽ Sports</label>
+          <label class="filter-option"><input type="radio" name="cat" value="food" onchange="applyFilters()"> 🛒 Food</label>
+          <label class="filter-option"><input type="radio" name="cat" value="books" onchange="applyFilters()"> 📚 Books</label>
+          <label class="filter-option"><input type="radio" name="cat" value="toys" onchange="applyFilters()"> 🧸 Toys & Kids</label>
+        </div>
+      </div>
+
+      <!-- Price Range -->
+      <div class="filter-group">
+        <div class="filter-title">Price Range <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="price-slider-wrap">
+          <input type="range" id="price-range" min="0" max="300000" value="300000" step="1000" oninput="document.getElementById('price-max').textContent='KES ' + parseInt(this.value).toLocaleString();applyFilters();">
+          <div class="price-range">
+            <span>KES 0</span>
+            <span id="price-max">KES 300,000</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Availability -->
+      <div class="filter-group">
+        <div class="filter-title">Availability</div>
+        <div class="filter-options">
+          <label class="filter-option"><input type="checkbox" onchange="applyFilters()"> In Stock Only</label>
+          <label class="filter-option"><input type="checkbox" onchange="applyFilters()"> Free Shipping</label>
+          <label class="filter-option"><input type="checkbox" onchange="applyFilters()"> On Sale</label>
+        </div>
+      </div>
+
+      <!-- Rating -->
+      <div class="filter-group">
+        <div class="filter-title">Customer Rating</div>
+        <div class="filter-options">
+          <label class="filter-option"><input type="radio" name="rating"> ★★★★★ 5 stars</label>
+          <label class="filter-option"><input type="radio" name="rating"> ★★★★☆ 4+ stars</label>
+          <label class="filter-option"><input type="radio" name="rating"> ★★★☆☆ 3+ stars</label>
+        </div>
+      </div>
+
+      <!-- Brands -->
+      <div class="filter-group">
+        <div class="filter-title">Brand</div>
+        <div class="filter-options">
+          <label class="filter-option"><input type="checkbox" onchange="applyFilters()"> Apple</label>
+          <label class="filter-option"><input type="checkbox" onchange="applyFilters()"> Samsung</label>
+          <label class="filter-option"><input type="checkbox" onchange="applyFilters()"> Sony</label>
+          <label class="filter-option"><input type="checkbox" onchange="applyFilters()"> Nike</label>
+          <label class="filter-option"><input type="checkbox" onchange="applyFilters()"> Adidas</label>
+          <label class="filter-option"><input type="checkbox" onchange="applyFilters()"> Dyson</label>
+        </div>
+      </div>
+    </aside>
+
+    <!-- PRODUCTS AREA -->
+    <div>
+      <div class="sort-bar">
+        <div class="sort-options">
+          <span style="font-size:0.82rem;color:var(--grey-300);margin-right:6px;">Sort:</span>
+          <button class="sort-btn active" onclick="sortProducts('featured')">Featured</button>
+          <button class="sort-btn" onclick="sortProducts('price-low')">Price: Low–High</button>
+          <button class="sort-btn" onclick="sortProducts('price-high')">Price: High–Low</button>
+          <button class="sort-btn" onclick="sortProducts('rating')">Top Rated</button>
+          <button class="sort-btn" onclick="sortProducts('newest')">Newest</button>
+        </div>
+        <div class="view-toggle">
+          <button class="btn-icon view-btn active" data-view="grid" title="Grid view">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          </button>
+          <button class="btn-icon view-btn" data-view="list" title="List view">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="product-grid cols-4" id="shop-grid"></div>
+
+      <!-- Pagination -->
+      <div style="display:flex;justify-content:center;gap:8px;margin-top:40px;" id="pagination"></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div style="display:flex;flex-wrap:wrap;gap:24px;padding:32px 0;border-bottom:1px solid var(--border);justify-content:space-between;">
+      <div><a href="shipping.html" style="color:var(--grey-300);font-size:0.875rem;">Shipping Policy</a></div>
+      <div><a href="returns.html" style="color:var(--grey-300);font-size:0.875rem;">Returns & Refunds</a></div>
+      <div><a href="privacy.html" style="color:var(--grey-300);font-size:0.875rem;">Privacy Policy</a></div>
+      <div><a href="terms.html" style="color:var(--grey-300);font-size:0.875rem;">Terms of Service</a></div>
+      <div><a href="contact.html" style="color:var(--grey-300);font-size:0.875rem;">Contact Us</a></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 DanaZone™. All rights reserved.</p>
+      <div class="payment-methods">
+        <span class="payment-badge">M-Pesa</span><span class="payment-badge">VISA</span><span class="payment-badge">Mastercard</span><span class="payment-badge">PayPal</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/products.js"></script>
+<script src="../js/main.js"></script>
+<script>
+let currentProducts = [...PRODUCTS];
+let currentSort = 'featured';
+
+function loadFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  const cat = params.get('cat');
+  const q = params.get('q');
+
+  if (cat && cat !== 'all') {
+    const radio = document.querySelector(`input[value="${cat}"]`);
+    if (radio) radio.checked = true;
+    currentProducts = PRODUCTS.filter(p => p.category === cat);
+    document.getElementById('page-title').textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
+    document.getElementById('breadcrumb-cat').textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
+  } else if (q) {
+    const query = q.toLowerCase();
+    currentProducts = PRODUCTS.filter(p =>
+      p.name.toLowerCase().includes(query) ||
+      p.brand.toLowerCase().includes(query) ||
+      p.category.toLowerCase().includes(query)
+    );
+    document.getElementById('page-title').textContent = `Results for "${q}"`;
+    document.getElementById('breadcrumb-cat').textContent = `Search: ${q}`;
+  } else {
+    currentProducts = [...PRODUCTS];
+  }
+
+  renderProducts();
+}
+
+function applyFilters() {
+  const cat = document.querySelector('input[name="cat"]:checked')?.value || 'all';
+  const maxPrice = parseInt(document.getElementById('price-range').value);
+
+  currentProducts = PRODUCTS.filter(p => {
+    if (cat !== 'all' && p.category !== cat) return false;
+    if (p.price > maxPrice) return false;
+    return true;
+  });
+
+  renderProducts();
+}
+
+function sortProducts(type) {
+  currentSort = type;
+  document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+
+  switch(type) {
+    case 'price-low': currentProducts.sort((a,b) => a.price - b.price); break;
+    case 'price-high': currentProducts.sort((a,b) => b.price - a.price); break;
+    case 'rating': currentProducts.sort((a,b) => b.rating - a.rating); break;
+    case 'newest': currentProducts.sort((a,b) => (b.badge === 'new') - (a.badge === 'new')); break;
+    default: currentProducts.sort((a,b) => (b.tags.includes('featured') ? 1 : 0) - (a.tags.includes('featured') ? 1 : 0));
+  }
+
+  renderProducts();
+}
+
+function clearFilters() {
+  document.querySelector('input[value="all"]').checked = true;
+  document.getElementById('price-range').value = 300000;
+  document.getElementById('price-max').textContent = 'KES 300,000';
+  currentProducts = [...PRODUCTS];
+  renderProducts();
+}
+
+function renderProducts() {
+  const grid = document.getElementById('shop-grid');
+  const count = document.getElementById('product-count');
+
+  count.textContent = `${currentProducts.length.toLocaleString()} products found`;
+
+  if (currentProducts.length === 0) {
+    grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:60px 20px;">
+      <div style="font-size:3rem;margin-bottom:16px;">🔍</div>
+      <h3 style="font-family:var(--font-display);margin-bottom:8px;">No products found</h3>
+      <p style="color:var(--grey-300);margin-bottom:20px;">Try adjusting your filters</p>
+      <button onclick="clearFilters()" class="btn btn-primary">Clear Filters</button>
+    </div>`;
+    return;
+  }
+
+  grid.innerHTML = currentProducts.map(p => renderProductCard(p)).join('');
+}
+
+document.addEventListener('DOMContentLoaded', loadFromURL);
+</script>
+</body>
+</html>
