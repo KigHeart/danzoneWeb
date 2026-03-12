@@ -15,10 +15,27 @@
   <link rel="stylesheet" href="css/style.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"DanaZone","url":"https://danazone.co.ke","potentialAction":{"@type":"SearchAction","target":"https://danazone.co.ke/products.html?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"DanaZone","url":"https://danazone.co.ke","contactPoint":{"@type":"ContactPoint","telephone":"+254-700-000-000","contactType":"customer service"},"address":{"@type":"PostalAddress","addressLocality":"Nairobi","addressCountry":"KE"}}</script>
+  <style>
+    .cat-icon-wrap {
+      width: 64px; height: 64px;
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 12px;
+    }
+    .cat-icon-wrap svg { width: 32px; height: 32px; }
+    .hero-mini-card-img {
+      width: 56px; height: 56px;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-bottom: 8px;
+      display: block;
+    }
+  </style>
 </head>
 <body>
 <div id="header-root"></div>
 
+<!-- HERO -->
 <section class="hero">
   <div class="container">
     <div class="hero-grid">
@@ -27,8 +44,8 @@
         <h1 class="hero-title">Shop <em>Everything</em><br>You Love</h1>
         <p class="hero-sub">Millions of products. Unbeatable prices.<br>Delivered fast across Kenya and beyond.</p>
         <div class="hero-ctas">
-          <a href="products.html" class="btn btn-primary btn-lg">Shop Now →</a>
-          <a href="deals.html" class="btn btn-outline-white btn-lg">⚡ Flash Deals</a>
+          <a href="pages/products.html" class="btn btn-primary btn-lg">Shop Now →</a>
+          <a href="pages/deals.html" class="btn btn-outline-white btn-lg">⚡ Flash Deals</a>
         </div>
         <div class="hero-stats">
           <div><div class="hero-stat-value">2M+</div><div class="hero-stat-label">Products</div></div>
@@ -38,38 +55,53 @@
       </div>
       <div class="hero-visual fade-up-2">
         <div class="hero-card-grid">
+
           <div class="hero-mini-card" onclick="window.location='pages/product.html?id=e1'" style="cursor:pointer">
-            <div class="hero-mini-card-icon" style="font-size:0;margin-bottom:8px"><img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=80&h=80&fit=crop&auto=format" style="width:56px;height:56px;object-fit:cover;border-radius:8px" alt="Samsung A55"></div>
-            <div class="hero-mini-card-title">Samsung A55</div><div class="hero-mini-card-price">KES 42,000</div><div class="hero-mini-card-old">KES 55,000</div>
+            <img class="hero-mini-card-img" src="https://placehold.co/56x56/1a2744/00BFA6?text=A55" alt="Samsung A55">
+            <div class="hero-mini-card-title">Samsung A55</div>
+            <div class="hero-mini-card-price">KES 42,000</div>
+            <div class="hero-mini-card-old">KES 55,000</div>
           </div>
+
           <div class="hero-mini-card" onclick="window.location='pages/product.html?id=f1'" style="cursor:pointer">
-            <div class="hero-mini-card-icon" style="font-size:0;margin-bottom:8px"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=80&h=80&fit=crop&auto=format" style="width:56px;height:56px;object-fit:cover;border-radius:8px" alt="Nike AF1"></div>
-            <div class="hero-mini-card-title">Nike Air Force 1</div><div class="hero-mini-card-price">KES 12,000</div><div class="hero-mini-card-old">KES 16,000</div>
+            <img class="hero-mini-card-img" src="https://placehold.co/56x56/f5f5f5/1a2744?text=Nike" alt="Nike AF1">
+            <div class="hero-mini-card-title">Nike Air Force 1</div>
+            <div class="hero-mini-card-price">KES 12,000</div>
+            <div class="hero-mini-card-old">KES 16,000</div>
           </div>
+
           <div class="hero-mini-card" onclick="window.location='pages/product.html?id=e4'" style="cursor:pointer">
-            <div class="hero-mini-card-icon" style="font-size:0;margin-bottom:8px"><img src="https://images.unsplash.com/photo-1607853202273-797f1c22a38e?w=80&h=80&fit=crop&auto=format" style="width:56px;height:56px;object-fit:cover;border-radius:8px" alt="PlayStation 5"></div>
-            <div class="hero-mini-card-title">PlayStation 5</div><div class="hero-mini-card-price">KES 68,000</div><div class="hero-mini-card-old">KES 75,000</div>
+            <img class="hero-mini-card-img" src="https://placehold.co/56x56/003087/ffffff?text=PS5" alt="PlayStation 5">
+            <div class="hero-mini-card-title">PlayStation 5</div>
+            <div class="hero-mini-card-price">KES 68,000</div>
+            <div class="hero-mini-card-old">KES 75,000</div>
           </div>
+
           <div class="hero-mini-card" onclick="window.location='pages/product.html?id=b1'" style="cursor:pointer">
-            <div class="hero-mini-card-icon" style="font-size:0;margin-bottom:8px"><img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=80&h=80&fit=crop&auto=format" style="width:56px;height:56px;object-fit:cover;border-radius:8px" alt="CeraVe"></div>
-            <div class="hero-mini-card-title">CeraVe Cream</div><div class="hero-mini-card-price">KES 2,800</div><div class="hero-mini-card-old">KES 3,500</div>
+            <img class="hero-mini-card-img" src="https://placehold.co/56x56/e8f4fd/003087?text=Skin" alt="CeraVe">
+            <div class="hero-mini-card-title">CeraVe Cream</div>
+            <div class="hero-mini-card-price">KES 2,800</div>
+            <div class="hero-mini-card-old">KES 3,500</div>
           </div>
+
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- CATEGORIES -->
 <section class="section" style="background:#fff">
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">Shop by <span>Category</span></h2>
-      <a href="products.html" class="see-all">See all categories →</a>
+      <a href="pages/products.html" class="see-all">See all categories →</a>
     </div>
     <div class="categories-grid" id="categoriesGrid"></div>
   </div>
 </section>
 
+<!-- FLASH DEALS BANNER -->
 <section class="section" style="padding-top:0">
   <div class="container">
     <div class="deals-banner">
@@ -82,41 +114,66 @@
           <div class="countdown-unit"><div class="countdown-num" id="cdS">00</div><div class="countdown-label">Secs</div></div>
         </div>
       </div>
-      <a href="deals.html" class="btn btn-gold btn-lg">Shop Flash Deals →</a>
+      <a href="pages/deals.html" class="btn btn-gold btn-lg">Shop Flash Deals →</a>
     </div>
   </div>
 </section>
 
+<!-- HOT DEALS -->
 <section class="section" style="padding-top:0">
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">🔥 <span>Hot Deals</span> Today</h2>
-      <a href="products.html" class="see-all">View all →</a>
+      <a href="pages/products.html" class="see-all">View all →</a>
     </div>
     <div class="products-grid" id="featuredProducts"></div>
   </div>
 </section>
 
+<!-- PROMO BANNERS -->
 <section class="section" style="padding-top:0">
   <div class="container">
     <div class="promo-grid">
-      <div class="promo-card promo-card-1"><span class="promo-emoji">📱</span><div class="promo-tag">Electronics Sale</div><div class="promo-title">Up to 40% OFF<br>Phones &amp; Laptops</div><a href="products.html?cat=electronics" class="btn btn-primary btn-sm">Shop Now</a></div>
-      <div class="promo-card promo-card-2"><span class="promo-emoji">👗</span><div class="promo-tag">Fashion Week</div><div class="promo-title">New Season<br>Arrivals from KES 500</div><a href="products.html?cat=fashion" class="btn btn-primary btn-sm">Explore</a></div>
-      <div class="promo-card promo-card-3"><span class="promo-emoji">🏠</span><div class="promo-tag">Home Makeover</div><div class="promo-title">Transform Your<br>Space — 30% OFF</div><a href="products.html?cat=home" class="btn btn-primary btn-sm">Discover</a></div>
+      <div class="promo-card promo-card-1">
+        <div class="promo-emoji" style="font-size:0;right:16px;top:50%;transform:translateY(-50%)">
+          <img src="https://placehold.co/80x80/ffffff/1a3a4a?text=📱" style="width:72px;height:72px;border-radius:12px;opacity:.7" alt="">
+        </div>
+        <div class="promo-tag">Electronics Sale</div>
+        <div class="promo-title">Up to 40% OFF<br>Phones &amp; Laptops</div>
+        <a href="pages/products.html?cat=Electronics" class="btn btn-primary btn-sm">Shop Now</a>
+      </div>
+      <div class="promo-card promo-card-2">
+        <div class="promo-emoji" style="font-size:0;right:16px;top:50%;transform:translateY(-50%)">
+          <img src="https://placehold.co/80x80/ffffff/2d1b4e?text=👗" style="width:72px;height:72px;border-radius:12px;opacity:.7" alt="">
+        </div>
+        <div class="promo-tag">Fashion Week</div>
+        <div class="promo-title">New Season<br>Arrivals from KES 500</div>
+        <a href="pages/products.html?cat=Fashion" class="btn btn-primary btn-sm">Explore</a>
+      </div>
+      <div class="promo-card promo-card-3">
+        <div class="promo-emoji" style="font-size:0;right:16px;top:50%;transform:translateY(-50%)">
+          <img src="https://placehold.co/80x80/ffffff/4a1a2a?text=🏠" style="width:72px;height:72px;border-radius:12px;opacity:.7" alt="">
+        </div>
+        <div class="promo-tag">Home Makeover</div>
+        <div class="promo-title">Transform Your<br>Space — 30% OFF</div>
+        <a href="pages/products.html?cat=Home" class="btn btn-primary btn-sm">Discover</a>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- NEW ARRIVALS -->
 <section class="section" style="background:#fff;padding-top:60px">
   <div class="container">
     <div class="section-header">
       <h2 class="section-title">✨ New <span>Arrivals</span></h2>
-      <a href="products.html?badge=new" class="see-all">See all new →</a>
+      <a href="pages/products.html?badge=new" class="see-all">See all new →</a>
     </div>
     <div class="products-grid" id="newArrivals"></div>
   </div>
 </section>
 
+<!-- MPESA BANNER -->
 <section style="padding:40px 0;background:var(--gray-100)">
   <div class="container">
     <div style="background:linear-gradient(135deg,#00875A 0%,#00A86B 100%);border-radius:var(--radius-lg);padding:32px 48px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
@@ -140,10 +197,40 @@ document.getElementById('header-root').innerHTML = renderHeader();
 document.getElementById('footer-root').innerHTML = renderFooter();
 document.getElementById('cart-root').innerHTML = renderCartDrawer();
 document.getElementById('notif-root').innerHTML = renderNotification();
-const cats=[{name:'Electronics',icon:'📱',count:'48,200+'},{name:'Fashion',icon:'👗',count:'120,000+'},{name:'Home & Living',icon:'🏠',count:'35,000+'},{name:'Beauty',icon:'💄',count:'22,500+'},{name:'Sports',icon:'⚽',count:'18,000+'},{name:'Food & Grocery',icon:'🛒',count:'9,800+'},{name:'Books',icon:'📚',count:'66,000+'},{name:'Toys & Kids',icon:'🧸',count:'14,300+'},{name:'Automotive',icon:'🚗',count:'8,200+'},{name:'Health',icon:'💊',count:'12,400+'}];
-document.getElementById('categoriesGrid').innerHTML=cats.map(c=>`<div class="category-card" onclick="window.location='products.html?cat=${encodeURIComponent(c.name)}'"><div class="category-icon">${c.icon}</div><div class="category-name">${c.name}</div><div class="category-count">${c.count} items</div></div>`).join('');
-document.getElementById('featuredProducts').innerHTML=getFeaturedProducts(8).map(renderProductCard).join('');
-document.getElementById('newArrivals').innerHTML=getNewArrivals(8).map(renderProductCard).join('');
+
+// Categories with SVG icons — no emojis, works everywhere
+const cats = [
+  { name:'Electronics', count:'48,200+', bg:'#EEF2FF', color:'#4F46E5',
+    svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>' },
+  { name:'Fashion', count:'120,000+', bg:'#FDF2F8', color:'#DB2777',
+    svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.57a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.57a2 2 0 00-1.34-2.23z"/></svg>' },
+  { name:'Home & Living', count:'35,000+', bg:'#FFF7ED', color:'#EA580C',
+    svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>' },
+  { name:'Beauty', count:'22,500+', bg:'#FFF1F2', color:'#E11D48',
+    svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>' },
+  { name:'Sports', count:'18,000+', bg:'#F0FDF4', color:'#16A34A',
+    svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M4.93 4.93l4.24 4.24m5.66 5.66l4.24 4.24M14.12 4.93L9.88 9.17m4.24 5.66l-4.24 4.24M12 2v4m0 12v4M2 12h4m12 0h4"/></svg>' },
+  { name:'Food & Grocery', count:'9,800+', bg:'#FFFBEB', color:'#D97706',
+    svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>' },
+  { name:'Books', count:'66,000+', bg:'#EFF6FF', color:'#2563EB',
+    svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>' },
+  { name:'Toys & Kids', count:'14,300+', bg:'#F5F3FF', color:'#7C3AED',
+    svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a5 5 0 015 5v3H7V7a5 5 0 015-5z"/><path d="M7 10v10a2 2 0 002 2h6a2 2 0 002-2V10"/><line x1="9" y1="14" x2="9" y2="14"/><line x1="15" y1="14" x2="15" y2="14"/></svg>' },
+  { name:'Automotive', count:'8,200+', bg:'#F8FAFC', color:'#475569',
+    svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v9a2 2 0 01-2 2h-2"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>' },
+  { name:'Health', count:'12,400+', bg:'#F0FDFA', color:'#0D9488',
+    svg:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>' },
+];
+
+document.getElementById('categoriesGrid').innerHTML = cats.map(c => `
+  <div class="category-card" onclick="window.location='pages/products.html?cat=${encodeURIComponent(c.name)}'">
+    <div class="cat-icon-wrap" style="background:${c.bg};color:${c.color}">${c.svg}</div>
+    <div class="category-name">${c.name}</div>
+    <div class="category-count">${c.count} items</div>
+  </div>`).join('');
+
+document.getElementById('featuredProducts').innerHTML = getFeaturedProducts(8).map(renderProductCard).join('');
+document.getElementById('newArrivals').innerHTML = getNewArrivals(8).map(renderProductCard).join('');
 </script>
 </body>
 </html>
