@@ -37,7 +37,7 @@
   <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><a href="products.html" id="breadCat">Products</a><span>/</span><span id="breadName">Product</span></div>
   <div class="product-detail-grid">
     <div>
-      <div class="product-gallery-main" id="mainImg">📦</div>
+      <div class="product-gallery-main" id="mainImg" style="overflow:hidden;font-size:0;padding:0"></div>
       <div class="product-gallery-thumbs" id="thumbs"></div>
     </div>
     <div>
@@ -111,7 +111,7 @@ let qty=1;
 
 document.getElementById('pageTitle').textContent=p.name+' — DanaZone™';
 document.getElementById('pageDesc').content=p.desc;
-document.getElementById('mainImg').textContent=p.emoji||'📦';
+const mainImgEl=document.getElementById('mainImg');if(p.img){mainImgEl.innerHTML=`<img src="${p.img}" style="width:100%;height:100%;object-fit:cover" alt="${p.name}">`;}else{mainImgEl.style.fontSize='120px';mainImgEl.textContent=p.emoji||'📦';}
 document.getElementById('breadCat').textContent=p.cat;
 document.getElementById('breadName').textContent=p.name;
 document.getElementById('prodTitle').textContent=p.name;
@@ -122,7 +122,7 @@ if(p.oldPrice){document.getElementById('prodOld').textContent='KES '+p.oldPrice.
 document.getElementById('prodDesc').textContent=p.desc;
 document.getElementById('fullDesc').textContent=p.desc+' This is a premium product sourced and quality-checked by the DanaZone team. All items are covered by our 30-day return policy and DanaZone buyer protection.';
 if(p.badge)document.getElementById('productBadge').innerHTML=`<span class="badge badge-${p.badge}" style="margin-bottom:12px;display:inline-block">${p.badge.toUpperCase()}</span>`;
-document.getElementById('thumbs').innerHTML=[p.emoji||'📦',p.emoji||'📦',p.emoji||'📦'].map((e,i)=>`<div class="gallery-thumb ${i===0?'active':''}">${e}</div>`).join('');
+document.getElementById('thumbs').innerHTML=[p.img,p.img,p.img].map((src,i)=>p.img?`<div class="gallery-thumb ${i===0?'active':''}" style="overflow:hidden;padding:0"><img src="${src}" style="width:100%;height:100%;object-fit:cover"></div>`:`<div class="gallery-thumb ${i===0?'active':''}">${p.emoji||'📦'}</div>`).join('');
 document.getElementById('specsTable').innerHTML=[['Brand',p.cat],['Category',p.sub],['Rating',p.rating+'/5'],['Reviews',p.reviews.toLocaleString()],['Availability','In Stock'],['SKU','DZ-'+p.id.toUpperCase()]].map(([k,v])=>`<div style="background:var(--gray-100);padding:10px 14px;border-radius:var(--radius-sm)"><div style="font-size:11px;color:var(--gray-400);text-transform:uppercase;font-weight:600">${k}</div><div style="font-weight:600;font-size:14px;color:var(--navy);margin-top:2px">${v}</div></div>`).join('');
 document.getElementById('reviewsList').innerHTML=[{u:'James M.',r:5,t:'Excellent product! Exactly as described. Fast delivery to Nairobi.'},{u:'Sarah W.',r:4,t:'Great value for money. Would recommend to anyone.'},{u:'David O.',r:5,t:'Very impressed with the quality. Will definitely buy again.'}].map(rv=>`<div class="review-item"><div style="display:flex;justify-content:space-between"><div class="review-author">${rv.u}</div><span class="stars" style="font-size:13px">${'★'.repeat(rv.r)}</span></div><p class="review-text">${rv.t}</p></div>`).join('');
 document.getElementById('relatedProducts').innerHTML=PRODUCTS.filter(x=>x.cat===p.cat&&x.id!==p.id).slice(0,4).map(renderProductCard).join('');

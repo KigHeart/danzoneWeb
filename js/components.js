@@ -282,7 +282,7 @@ function renderCartItems() {
   const total = cart.reduce((s, i) => s + (i.price * (i.qty || 1)), 0);
   container.innerHTML = cart.map(item => `
     <div class="cart-item-drawer">
-      <div class="cart-item-img-sm">${item.emoji || '📦'}</div>
+      <div class="cart-item-img-sm" style="overflow:hidden;padding:0;background:var(--gray-100)">${item.img ? `<img src="${item.img}" style="width:100%;height:100%;object-fit:cover" alt="${item.name}">` : `<span style="font-size:30px;display:flex;align-items:center;justify-content:center;height:100%">${item.emoji||'📦'}</span>`}</div>
       <div class="cart-item-info">
         <div class="cart-item-name">${item.name}</div>
         <div class="cart-item-price-sm">KES ${(item.price * (item.qty||1)).toLocaleString()}</div>
